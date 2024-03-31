@@ -4,5 +4,4 @@
 --
 🗺️ my future plans are to become fullstack developer,
 --
-fun fact: i love history :)
 --
