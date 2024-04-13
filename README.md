@@ -1,9 +1,6 @@
 <br clear="both">
-
 <h2 align="center">💫 About Me:<br>🚀 Passionate Front-end Developer<br><br>Driven by a keen interest in exploring new concepts and tackling challenging algorithmic problems. I'm deeply committed to advancing my expertise in front-end development.<br><br>💡 Dedicated Learner<br><br>With a strong sense of discipline and a passion for technology, I'm dedicated to carving out my place in this dynamic field.<br><br>💪 Resilient<br><br>Failure only fuels my determination; I am not one to give up easily.</h2>
-
 ###
-
 <br clear="both">
 
 <div align="left">
