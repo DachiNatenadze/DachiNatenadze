@@ -1,1 +1,67 @@
-![Metrics](https://metrics.lecoq.io/DachiNatenadzeReadme?template=classic&base.indepth=true&isocalendar=1&calendar=1&introduction=1&languages=1&gists=1&steam=1&music=1&base=header%2C%20activity%2C%20community%2C%20repositories%2C%20metadata&base.indepth=true&base.hireable=false&base.skip=false&isocalendar=false&isocalendar.duration=half-year&languages=false&languages.limit=8&languages.threshold=0%25&languages.other=false&languages.colors=github&languages.sections=most-used&languages.indepth=false&languages.analysis.timeout=15&languages.analysis.timeout.repositories=7.5&languages.categories=markup%2C%20programming&languages.recent.categories=markup%2C%20programming&languages.recent.load=300&languages.recent.days=14&calendar=false&calendar.limit=2024&gists=false&introduction=false&introduction.title=true&music=false&music.provider=youtube&music.user=.user.login&music.mode=playlist&music.playlist=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DkLAUo2kDgHo%26list%3DRDkLAUo2kDgHo%26start_radio%3D1&music.limit=4&music.played.at=true&music.time.range=short&music.top.type=tracks&steam=false&steam.sections=player%2C%20most-played%2C%20recently-played&steam.user=Steamcommunity.com%2Fprofiles%2F76561199548290136%2F&steam.games.limit=1&steam.recent.games.limit=1&steam.achievements.limit=2&steam.playtime.threshold=2&config.timezone=Asia%2FTbilisi&config.display=large)
+# Visit https://github.com/lowlighter/metrics#-documentation for full reference
+name: Metrics
+on:
+  # Schedule updates (each hour)
+  schedule: [{cron: "0 * * * *"}]
+  # Lines below let you run workflow manually and on each commit
+  workflow_dispatch:
+  push: {branches: ["master", "main"]}
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # Your GitHub token
+          # The following scopes are required:
+          #  - public_access (default scope)
+          # The following additional scopes may be required:
+          #  - read:org      (for organization related metrics)
+          #  - read:user     (for user related data)
+          #  - read:packages (for some packages related data)
+          #  - repo          (optional, if you want to include private repositories)
+          token: ${{ secrets.METRICS_TOKEN }}
+
+          # Options
+          user: DachiNatenadze
+          template: classic
+          base: header, activity, community, repositories, metadata
+          base_indepth: yes
+          config_display: large
+          config_timezone: Asia/Tbilisi
+          plugin_calendar: yes
+          plugin_calendar_limit: 2024
+          plugin_gists: yes
+          plugin_introduction: yes
+          plugin_introduction_title: yes
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
+          plugin_languages: yes
+          plugin_languages_analysis_timeout: 15
+          plugin_languages_analysis_timeout_repositories: 7.5
+          plugin_languages_categories: markup, programming
+          plugin_languages_colors: github
+          plugin_languages_limit: 8
+          plugin_languages_recent_categories: markup, programming
+          plugin_languages_recent_days: 14
+          plugin_languages_recent_load: 300
+          plugin_languages_sections: most-used
+          plugin_languages_threshold: 0%
+          plugin_music: yes
+          plugin_music_limit: 4
+          plugin_music_mode: playlist
+          plugin_music_played_at: yes
+          plugin_music_playlist: https://www.youtube.com/watch?v=kLAUo2kDgHo&list=RDkLAUo2kDgHo&start_radio=1
+          plugin_music_provider: youtube
+          plugin_music_time_range: short
+          plugin_music_top_type: tracks
+          plugin_music_user: .user.login
+          plugin_steam: yes
+          plugin_steam_achievements_limit: 2
+          plugin_steam_games_limit: 1
+          plugin_steam_playtime_threshold: 2
+          plugin_steam_recent_games_limit: 1
+          plugin_steam_sections: player, most-played, recently-played
+          plugin_steam_user: Steamcommunity.com/profiles/76561199548290136/
